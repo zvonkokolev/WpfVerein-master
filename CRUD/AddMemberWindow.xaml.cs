@@ -35,7 +35,7 @@ namespace WpfVerein.CRUD
 		{
 			if (_memberToEdit != null)
 			{
-				tbIndex.Text = _indexer.ToString();
+				//tbIndex.Text = _indexer.ToString();
 				tbFirstname.Text = _memberToEdit.Firstname;
 				tbLastname.Text = _memberToEdit.Lastname;
 				tbEmail.Text = _memberToEdit.Email;

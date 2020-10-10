@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfVerein.CRUD"
         mc:Ignorable="d"
-        Title="AddMemberWindow" Height="450" Width="800" Loaded="AddMemberWindow_Loaded">
+        Title="AddMemberWindow" Height="250" Width="500" MinHeight="200" MinWidth="450" Loaded="AddMemberWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,8 +27,8 @@
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Grid.Row="0">Index:</Label>
-            <TextBox x:Name="tbIndex" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsReadOnly="True"></TextBox>
+            <Label Grid.Column="0" Grid.Row="0"></Label>
+            <!--TextBox x:Name="tbIndex" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsReadOnly="True"></TextBox-->
          
             <Label Grid.Column="0" Grid.Row="1">Vorname:</Label>
             <TextBox x:Name="tbFirstname" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Firstname}"></TextBox>
@@ -47,8 +47,8 @@
         </Grid>
 
         <UniformGrid Grid.Row="2" Rows="1">
-            <Button x:Name="btSave" Click="BtnSave_Clicked">Speichern</Button>
-            <Button x:Name="btCancel" Click="BtnCancel_Clicked">Abbrechen</Button>
+            <Button x:Name="btSave" Click="BtnSave_Clicked" Margin="10,10,150,10" HorizontalAlignment="Center">Speichern</Button>
+            <Button x:Name="btCancel" Click="BtnCancel_Clicked" Margin="10,10,150,10" HorizontalAlignment="Center">Abbrechen</Button>
         </UniformGrid>
     </Grid>
 </Window>

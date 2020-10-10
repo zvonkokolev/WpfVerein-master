@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfVerein"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800" MinHeight="200" MinWidth="800" MaxWidth="850" Loaded="MainWindow_Loaded">
+        Title="MainWindow" Height="600" Width="800" MinHeight="200" MinWidth="800" MaxWidth="850" Loaded="MainWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="AUTO"/>
@@ -30,30 +30,32 @@
         </ListView>
         <ListBox x:Name="lbxCds" Grid.Row="2" Grid.ColumnSpan="2">
             <ListBox.ItemTemplate>
-                <DataTemplate>
+            <DataTemplate>
                     <Grid Width="{Binding ElementName=mainWin, Path=Width}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
                             <ColumnDefinition Width="12*"></ColumnDefinition>
                             <ColumnDefinition Width="16*"></ColumnDefinition>
-                            <ColumnDefinition Width="12*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
                             <ColumnDefinition Width="18*"></ColumnDefinition>
                             <ColumnDefinition Width="18*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Name="tbIndex" Grid.Column="0" Text="{Binding Path=Id}"/>
-                        <TextBlock x:Name="tbName" Grid.Column="1" Text="{Binding Path=Name}"/>
+                        <TextBlock x:Name="tbIndex" Grid.Column="0" Text="{Binding Path=Id}" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="tbName" Grid.Column="1" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
                         <TextBlock x:Name="tbEmail" Grid.Column="2" Text="{Binding Path=Email}"/>
-                        <TextBlock x:Name="tbPhone" Grid.Column="3" Text="{Binding Path=Phone}"/>
-                        <TextBlock x:Name="tbBirthday" Grid.Column="4" Text="{Binding Path=BirthDay}"/>
+                        <TextBlock x:Name="tbPhone" Grid.Column="3" Text="{Binding Path=Phone}" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="tbBirthday" Grid.Column="4" Text="{Binding Path=BirthDay}" HorizontalAlignment="Center"/>
                         <TextBlock x:Name="tbActualDateTime" Grid.Column="5" Text="{Binding Path=ActualDateTime}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <UniformGrid Grid.Row="3" Rows="1" Columns="3" Margin="10,10,10,10" Grid.ColumnSpan="2">
-            <Button x:Name="btnNew" Content="Neu" Click="BtnMainWindow_Clicked" /> <!-- Click="BtnNew_Clicked"/> -->
-            <Button x:Name="btnDel" Content="Löschen" Click="BtnMainWindow_Clicked" /> <!-- Click="BtnDel_Clicked"/> -->
-            <Button x:Name="btnEdit" Content="Bearbeiten" Click="BtnMainWindow_Clicked" /> <!-- Click="BtnEdit_Clicked"/> -->
+        <UniformGrid Grid.Row="3" Rows="1" Columns="5" Margin="10,10,10,10" Grid.ColumnSpan="2" >
+            <Button x:Name="btnNew" Content="Neu" Click="BtnMainWindow_Clicked"  Style="{StaticResource ResourceKey=allButtons}"/>
+            <Button x:Name="btnDel" Content="Löschen" Click="BtnMainWindow_Clicked"  Style="{StaticResource ResourceKey=allButtons}"/>
+            <Button x:Name="btnEdit" Content="Bearbeiten" Click="BtnMainWindow_Clicked"  Style="{StaticResource ResourceKey=allButtons}"/>
+            <Button x:Name="btnReserve" Background="Transparent" BorderBrush="Transparent"/>
+            <Button x:Name="btnPrint" Content="Drucken" Click="PrintOutCsv_Clicked"  Style="{StaticResource ResourceKey=allButtons}" Background="Black" Foreground="White"/>
         </UniformGrid>
     </Grid>
 </Window>

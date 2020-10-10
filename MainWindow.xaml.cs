@@ -36,19 +36,7 @@ namespace WpfVerein
 
 				_members = db.PersonRepository.GetAllMembers();
 				lbxCds.ItemsSource = _members;
-				// prints members data to csv file
-				_csvWriter = new CsvWriter(path, ";");
-				for (int i = 0; i < _members.Count; i++)
-				{
-					_csvWriter.Write
-						 (
-						 _members.ElementAt(i).Name,
-						 _members.ElementAt(i).Email,
-						 _members.ElementAt(i).Phone,
-						 _members.ElementAt(i).BirthDay.ToShortDateString(),
-						 _members.ElementAt(i).ActualDateTime.ToString()
-						 );
-				}
+
 				// Read and save into database
 				db.PersonRepository.AttachMembersRange(_members);
 				db.SaveChanges();
@@ -57,8 +45,7 @@ namespace WpfVerein
 		}
 
 		private void BtnMainWindow_Clicked(object sender, RoutedEventArgs e)
-		{  // saves data into csv file
-			_csvWriter.Flush();
+		{
 			Button button = sender as Button;
 
 			Member selectedCd = (Member)lbxCds.SelectedItem;
@@ -94,6 +81,27 @@ namespace WpfVerein
 			_members = db.PersonRepository.GetAllMembers();
 			lbxCds.ItemsSource = _members;
 			lbxCds.Items.Refresh();
+		}
+
+		private void PrintOutCsv_Clicked(object sender, RoutedEventArgs e)
+		{
+			// prints members data to csv file
+			_csvWriter = new CsvWriter(path, ";");
+			_csvWriter.Write("Name", "Email", "Telefon", "Geburtsdatum", "Anwesend am");
+			for (int i = 0; i < _members.Count; i++)
+			{
+				_csvWriter.Write
+					 (
+					 _members.ElementAt(i).Name,
+					 _members.ElementAt(i).Email,
+					 _members.ElementAt(i).Phone,
+					 _members.ElementAt(i).BirthDay.ToShortDateString(),
+					 _members.ElementAt(i).ActualDateTime.ToString()
+					 );
+			}
+			// saves data into csv file
+			_csvWriter.Flush();
+			MessageBox.Show("Liste wurde in der 'output.csv' Datei kopiert");
 		}
 	}
 }

@@ -75,14 +75,14 @@ namespace WpfVerein.Persistence
 
 		public int SaveChanges()
 		{
-			var entities = _dbContext.ChangeTracker.Entries()
-				.Where(entity => entity.State == EntityState.Added)
-				//	|| entity.State == EntityState.Modified)
-				.Select(e => e.Entity);
-			foreach (var entity in entities)
-			{
-				ValidateEntity(entity);
-			}
+			//var entities = _dbContext.ChangeTracker.Entries()
+			//	.Where(entity => entity.State == EntityState.Added)
+			//		|| entity.State == EntityState.Modified)
+			//	.Select(e => e.Entity);
+			//foreach (var entity in entities)
+			//{
+			//	ValidateEntity(entity);
+			//}
 			return _dbContext.SaveChanges();
 		}
 
