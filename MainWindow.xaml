@@ -55,7 +55,7 @@
             <Button x:Name="btnDel" Content="Löschen" Click="BtnMainWindow_Clicked"  Style="{StaticResource ResourceKey=allButtons}"/>
             <Button x:Name="btnEdit" Content="Bearbeiten" Click="BtnMainWindow_Clicked"  Style="{StaticResource ResourceKey=allButtons}"/>
             <Button x:Name="btnReserve" Background="Transparent" BorderBrush="Transparent" Visibility="Hidden"/>
-            <Button x:Name="btnPrint" Content="Drucken" Click="PrintOutCsv_Clicked"  Style="{StaticResource ResourceKey=allButtons}" Background="Black" Foreground="White"/>
+            <Button x:Name="btnPrint" Content="Drucken" Click="PrintOutCsv_Clicked" Style="{StaticResource ResourceKey=allButtons}" Background="Black" Foreground="White"/>
         </UniformGrid>
     </Grid>
 </Window>
