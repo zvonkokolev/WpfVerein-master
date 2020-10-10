@@ -1,0 +1,15 @@
+INDEX;ROWVERSION;FIRSTNAME;LASTNAME;EMAIL;PHONE;BIRTHDAY;ACTUALDAY
+1;;SMITH;Thompson;s.thompson@yahoo.com;0732/7369-0;20.12.1966;10.10.2020
+2;;ALLEN;Brown;a.brown@gmail.com;07242/7499;12.03.1969;10.10.2020
+3;;WARD;Williams;w.williams@liwest.at;0681/7521-11;13.04.1972;10.10.2020
+4;;JONES;Jones;j.jones@jando.de;;21.12.1980;10.10.2020
+5;;MARTIN;Garcia;m.garcia@zallando.at;0699/7654;30.03.1984;10.10.2020
+6;;BLAKE;Miller;b.miller@yahoo.de;0696/7698;31.01.1980;10.10.2020
+7;;CLARK;Davis;c.davis@google.com;01/7782-7782;26.02.1990;10.10.2020
+8;;SCOTT;Wilson;s.wilson@gms.at;07788/7788;13.04.2000;10.10.2020
+9;;KING;Anderson;k.anderson@email.org;;14.06.1970;10.10.2020
+10;;TURNER;Thomas;t.thomas@gmail.de;02222/7844;17.11.1999;10.10.2020
+11;;ADAMS;Taylor;a.taylor@blabla.com;0650/7876;19.12.1977;10.10.2020
+12;;JAMES;Moore;j.moore@ink.ca;;22.02.2000;10.10.2020
+13;;FORD;Jackson;f.jackson@mig.ru;;31.03.1983;10.10.2020
+14;;MILLER;Martin;m.martin@mama.it;;31.05.1996;10.10.2020

@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfVerein.CRUD.AddMemberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfVerein.CRUD"
+        mc:Ignorable="d"
+        Title="AddMemberWindow" Height="450" Width="800" Loaded="AddMemberWindow_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="10,10,0,10">Neues Mitglid anlegen</TextBlock>
+
+        <Grid x:Name="grdCdField" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0">Index:</Label>
+            <TextBox x:Name="tbIndex" Grid.Column="1" Grid.Row="0" Text="{Binding Path=Id}" IsReadOnly="True"></TextBox>
+         
+            <Label Grid.Column="0" Grid.Row="1">Vorname:</Label>
+            <TextBox x:Name="tbFirstname" Grid.Column="1" Grid.Row="1" Text="{Binding Path=Firstname}"></TextBox>
+
+            <Label Grid.Column="0" Grid.Row="2">Nachname:</Label>
+            <TextBox x:Name="tbLastname" Grid.Column="1" Grid.Row="2" Text="{Binding Path=Lastname}"></TextBox>
+            
+            <Label Grid.Column="0" Grid.Row="3">Email:</Label>
+            <TextBox x:Name="tbEmail" Grid.Column="1" Grid.Row="3" Text="{Binding Path=Email}"></TextBox>
+            
+            <Label Grid.Column="0" Grid.Row="4">Telefon:</Label>
+            <TextBox x:Name="tbPhone" Grid.Column="1" Grid.Row="4" Text="{Binding Path=Phone}"></TextBox>
+            
+            <Label Grid.Column="0" Grid.Row="5">Geburtsdatum:</Label>
+            <TextBox x:Name="tbBirthday" Grid.Column="1" Grid.Row="5" Text="{Binding Path=BirthDay}"></TextBox>
+        </Grid>
+
+        <UniformGrid Grid.Row="2" Rows="1">
+            <Button x:Name="btSave" Click="BtnSave_Clicked">Speichern</Button>
+            <Button x:Name="btCancel" Click="BtnCancel_Clicked">Abbrechen</Button>
+        </UniformGrid>
+    </Grid>
+</Window>
