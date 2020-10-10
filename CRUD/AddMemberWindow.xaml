@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfVerein.CRUD"
         mc:Ignorable="d"
-        Title="AddMemberWindow" Height="250" Width="500" MinHeight="200" MinWidth="450" Loaded="AddMemberWindow_Loaded">
+        Title="AddMemberWindow" Height="270" Width="500" MinHeight="200" MinWidth="450" Loaded="AddMemberWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="10,10,0,10">Neues Mitglid anlegen</TextBlock>
+        <TextBlock Grid.Row="0" Style="{StaticResource heading}">Neues Mitglied anlegen</TextBlock>
 
         <Grid x:Name="grdCdField" Grid.Row="1">
             <Grid.RowDefinitions>

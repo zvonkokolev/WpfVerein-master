@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,10" Text="Vereinsmitglieder verwaltung" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource heading}" Text="Vereinsmitglieder verwaltung" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <ListView Grid.Row="1">
             <ListView.View>
                 <GridView>
@@ -21,31 +21,31 @@
                         <GridViewColumn Header="Index" Width="40" DisplayMemberBinding="{Binding Path=Id}" />
                         <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Path=Name}" />
                         <GridViewColumn Header="Email" Width="160" DisplayMemberBinding="{Binding Path=Email}" />
-                        <GridViewColumn Header="Telefon" Width="120" DisplayMemberBinding="{Binding Path=Phone}" />
+                        <GridViewColumn Header="Telefon" Width="130" DisplayMemberBinding="{Binding Path=Phone}" />
                         <GridViewColumn Header="Geburtsdatum" Width="180" DisplayMemberBinding="{Binding Path=BirthDay}" />
                         <GridViewColumn Header="Besuchsdatum" Width="180" DisplayMemberBinding="{Binding Path=ActualDateTime}" />
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListBox x:Name="lbxCds" Grid.Row="2" Grid.ColumnSpan="2">
+        <ListBox x:Name="lbxCds" Grid.Row="2" Grid.ColumnSpan="2" >
             <ListBox.ItemTemplate>
-            <DataTemplate>
+                <DataTemplate>
                     <Grid Width="{Binding ElementName=mainWin, Path=Width}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
-                            <ColumnDefinition Width="12*"></ColumnDefinition>
-                            <ColumnDefinition Width="16*"></ColumnDefinition>
-                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="13*"></ColumnDefinition>
+                            <ColumnDefinition Width="17*"></ColumnDefinition>
+                            <ColumnDefinition Width="11*"></ColumnDefinition>
                             <ColumnDefinition Width="18*"></ColumnDefinition>
                             <ColumnDefinition Width="18*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:Name="tbIndex" Grid.Column="0" Text="{Binding Path=Id}" HorizontalAlignment="Right"/>
-                        <TextBlock x:Name="tbName" Grid.Column="1" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="tbEmail" Grid.Column="2" Text="{Binding Path=Email}"/>
-                        <TextBlock x:Name="tbPhone" Grid.Column="3" Text="{Binding Path=Phone}" HorizontalAlignment="Right"/>
-                        <TextBlock x:Name="tbBirthday" Grid.Column="4" Text="{Binding Path=BirthDay}" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="tbActualDateTime" Grid.Column="5" Text="{Binding Path=ActualDateTime}"/>
+                        <TextBlock x:Name="tbIndex" Grid.Column="0" Text="{Binding Path=Id}" Style="{StaticResource ResourceKey=mouseOverItem}" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="tbName" Grid.Column="1" Text="{Binding Path=Name}" Style="{StaticResource ResourceKey=mouseOverItem}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="tbEmail" Grid.Column="2" Text="{Binding Path=Email}" Style="{StaticResource ResourceKey=mouseOverItem}" />
+                        <TextBlock x:Name="tbPhone" Grid.Column="3" Text="{Binding Path=Phone}" Style="{StaticResource ResourceKey=mouseOverItem}" HorizontalAlignment="Right"/>
+                        <TextBlock x:Name="tbBirthday" Grid.Column="4" Text="{Binding Path=BirthDay}" Style="{StaticResource ResourceKey=mouseOverItem}" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="tbActualDateTime" Grid.Column="5" Text="{Binding Path=ActualDateTime}" Style="{StaticResource ResourceKey=mouseOverItem}" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
