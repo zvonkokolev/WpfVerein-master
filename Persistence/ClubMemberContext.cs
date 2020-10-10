@@ -7,7 +7,11 @@ namespace WpfVerein.Model
 	{
 		public DbSet<Member> Members { get; set; }
 
-		protected override void OnConfiguring(DbContextOptionsBuilder options)
-			=> options.UseSqlite("Data Source=administration.db");
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseSqlite("Data Source=administration.db");
+			optionsBuilder.UseLazyLoadingProxies();
+			base.OnConfiguring(optionsBuilder);
+		}
 	}
 }

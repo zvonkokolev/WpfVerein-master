@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using WpfVerein.Core.Entities;
-using WpfVerein.Model;
 using WpfVerein.Persistence;
 using WpfVerein.Utils;
 
@@ -20,8 +19,7 @@ namespace WpfVerein.CRUD
 		private static int _indexer = 14;
 		private readonly Member _memberToEdit;
 		private List<string> _line;
-		private PersonRepository _personRepository;
-		private UnitOfWork _unitOfWork;
+		private UnitOfWork db = new UnitOfWork();
 
 		public AddMemberWindow(Member memberToEdit)
 		{
@@ -35,7 +33,7 @@ namespace WpfVerein.CRUD
 		}
 		private void AddMemberWindow_Loaded(object sender, RoutedEventArgs e)
 		{
-			if(_memberToEdit != null)
+			if (_memberToEdit != null)
 			{
 				tbIndex.Text = _indexer.ToString();
 				tbFirstname.Text = _memberToEdit.Firstname;
@@ -61,42 +59,38 @@ namespace WpfVerein.CRUD
 		{
 			if (_memberToEdit == null)
 			{
-				_unitOfWork = new UnitOfWork();
-				_unitOfWork.PersonRepository.AddMemberAsync(newCd);
-				//_personRepository.AddMember(newCd);
+				db.PersonRepository.AddMemberAsync(newCd);
+
 				_line = new List<string>
 				{
 					newCd.Name,
 					newCd.Email,
 					newCd.Phone
 				};
+				//CSV file---------------------------------------
 				// if member is new one, will be appended into csv file
 				_csvWriter = new CsvWriter(path, ";");
 				_csvWriter.Write(_line.ElementAt(0), _line.ElementAt(1), _line.ElementAt(2));
 				_csvWriter.Flush();
 
 				// Database--------------------------------------
-				using (var db = new ClubMemberContext())
-				{
-					// Create
-					MessageBox.Show("Ein neues Mitglied einfügen");
-					db.Add(newCd);
-					db.SaveChanges();
-					//---------------------------------------------
-				}
+				// Create
+				MessageBox.Show("Ein neues Mitglied einfügen");
+				db.PersonRepository.AddMember(newCd);
+				db.SaveChanges();
 			}
 			else
-			{
-				_personRepository.UpdateCd(_memberToEdit, newCd);
-				// Database------------------------------------
-				using (var db = new ClubMemberContext())
-				{
-					// Update
-					MessageBox.Show("Mitglied aktualisieren");
-					db.Update(_memberToEdit);
-					db.SaveChanges();
-				}
-				//----------------------------------------------
+			{  // Database-----------------------------------
+				// Edit
+				_memberToEdit.Firstname = newCd.Firstname;
+				_memberToEdit.Lastname = newCd.Lastname;
+				_memberToEdit.Email = newCd.Email;
+				_memberToEdit.Phone = newCd.Phone;
+
+				db.PersonRepository.UpdateCd(_memberToEdit);
+
+				MessageBox.Show("Mitglied aktualisieren");
+				db.SaveChanges();
 			}
 			Close();
 		}

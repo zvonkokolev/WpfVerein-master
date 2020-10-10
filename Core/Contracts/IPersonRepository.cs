@@ -5,18 +5,21 @@ using WpfVerein.Core.Entities;
 
 namespace WpfVerein.Core.Contracts
 {
-    public interface IPersonRepository
-    {
-        Task AddMemberAsync(Member person);
-        List<Member> GetAllMembers();
-        Task<IEnumerable<Member>> GetAllMembersAsync();
+	public interface IPersonRepository
+	{
+		Task AddMemberAsync(Member person);		
+		Task<IEnumerable<Member>> GetAllMembersAsync();
 
-        Task<Member> GetMemberByPhoneNumberAsync(string phoneNumber);
-        Task<Member> GetMemberByFirstAndLastnameAsync(string firstname, string lastname);
-        Task<IEnumerable<Member>> GetPersonsByDateAsync(DateTime date);
-        Task<IEnumerable<Member>> GetPersonsForTodayAsync();
+		Task<Member> GetMemberByPhoneNumberAsync(string phoneNumber);
+		Task<Member> GetMemberByFirstAndLastnameAsync(string firstname, string lastname);
+		Task<IEnumerable<Member>> GetPersonsByDateAsync(DateTime date);
+		Task<IEnumerable<Member>> GetPersonsForTodayAsync();
 
-        void AttachMembersRange(List<Member> members);
-        void RemoveCd(Member member);
-    }
+		List<Member> GetAllMembers();
+		void AddMember(Member member);
+		void AttachMembersRange(List<Member> members);
+		void RemoveCd(Member member);
+		void UpdateCd(Member oldMember);
+		Task<bool> CheckIfUserEmailExists(string email, int userId);
+	}
 }
